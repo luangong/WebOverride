@@ -1,0 +1,26 @@
+language: node_js
+
+node_js:
+  - node
+  - 8
+  - 7
+  - 6
+
+# Upgrade to the latest version of NPM to be able to use npm ci
+before_install:
+  - npm install --global npm
+
+# Speed up installation of packages
+install:
+  - npm ci
+
+script:
+  - npm run lint
+  - npm test
+
+# Limit "Build pushed branches" to only the master branch
+# https://travis-ci.org/luangong/WebOverride/settings
+# https://docs.travis-ci.com/user/customizing-the-build/#Building-only-the-latest-commit
+branches:
+  only:
+    - master
