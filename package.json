@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Override websites with your own code snippets",
   "scripts": {
+    "lint": "eslint .",
     "test": "exit 0"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/dcohenb/WebOverride/issues"
   },
-  "homepage": "https://github.com/dcohenb/WebOverride#readme"
+  "homepage": "https://github.com/dcohenb/WebOverride#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
 }
