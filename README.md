@@ -17,4 +17,4 @@ You can download the extension from the chrome store and get updated automatical
 - Open Chrome in `chrome://extensions/`
 - Check `Developer Mode`
 - Click `Load unpacked extension`
-- Select the `bin` folder
+- Select the project folder
