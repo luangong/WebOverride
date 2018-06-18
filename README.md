@@ -1,4 +1,7 @@
 # WebOverride
+
+[![Build Status](https://travis-ci.com/luangong/WebOverride.svg?branch=master)](https://travis-ci.com/luangong/WebOverride)
+
 WebOverride let's you inject code snippets into any website allowing you to customize it to fit your needs
 - Automatic login
 - hide annoying content
