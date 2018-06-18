@@ -2,7 +2,8 @@
   "name": "web-override",
   "version": "1.0.1",
   "authors": [
-    "Daniel Cohen <dcohenb@gmail.com>"
+    "Daniel Cohen <dcohenb@gmail.com>",
+    "Luan Gong <luan.gong@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -11,14 +12,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "lodash": "~3.6.0",
-    "font-awesome": "~4.3.0",
-    "angular-ui-router": "~0.2.14",
-    "angular-ui-ace": "~0.2.3",
-    "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.5",
-    "angular-mass-autocomplete": "~0.2.3",
-    "angular-sanitize": "~1.3.15"
-  }
+  ]
 }
