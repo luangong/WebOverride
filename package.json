@@ -1,0 +1,27 @@
+{
+  "name": "web-override",
+  "version": "1.0.1",
+  "description": "Override websites with your own code snippets",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcohenb/WebOverride.git"
+  },
+  "author": {
+    "name": "Daniel Cohen",
+    "email": "dcohenb@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Luan Gong",
+      "email": "luan.gong@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dcohenb/WebOverride/issues"
+  },
+  "homepage": "https://github.com/dcohenb/WebOverride#readme"
+}
