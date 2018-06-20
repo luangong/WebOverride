@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content script initialize() should inject stuff into DOM 1`] = `"<html><head><style type=\\"text/css\\">.foo { color: #000; }</style><script type=\\"text/javascript\\" src=\\"https://code.jquery.com/jquery.min.js\\"></script><script type=\\"text/javascript\\">console.log(\\"bar\\")</script></head><body><div>foo</div></body></html>"`;
+
+exports[`Content script initialize() should not inject stuff into DOM 1`] = `"<html><head></head><body></body></html>"`;
+
+exports[`Content script initialize() should not inject stuff into DOM 2`] = `"<html><head></head><body></body></html>"`;

@@ -1,13 +1,12 @@
-/**
- * Get all the scripts and activate the relevant ones
- */
-chrome.storage.sync.get(function (overrides) {
+'use strict';
+
+function initialize(overrides, document, location) {
   // Filter out inactive and irrelevant overrides
   var relevantOverrides = [];
   for (var id in overrides) {
     if (overrides.hasOwnProperty(id) && overrides[id].active) {
       var query = overrides[id].urlQueries.filter(function (urlQuery) {
-        return new RegExp(urlQuery).test(window.location.href);
+        return new RegExp(urlQuery).test(location.href);
       });
       if (query.length > 0) {
         relevantOverrides.push(overrides[id]);
@@ -38,20 +37,31 @@ chrome.storage.sync.get(function (overrides) {
       document.head.appendChild(s);
     }
   });
-});
+}
 
-/**
- * Listen for updates in overrides and reload the page if the updated override is relevant
- */
-chrome.runtime.onMessage.addListener(function (message) {
+function onMessage(message, location) {
   if (message.request == 'overrideUpdated' && message.urlQueries) {
     // Check if any of the overrides urls pass the regexp test
     var overrideRelevant = message.urlQueries.filter(function (urlQuery) {
-      return new RegExp(urlQuery).test(window.location.href);
+      return new RegExp(urlQuery).test(location.href);
     });
-
     if (overrideRelevant.length > 0) {
-      window.location.reload();
+      location.reload();
     }
   }
-});
+}
+
+// Export functions for the Node environment
+if (module && module.exports) {
+  module.exports = { initialize, onMessage };
+} else {
+  // Get all the scripts and activate the relevant ones
+  chrome.storage.sync.get(overrides => {
+    initialize(overrides, document, location);
+  });
+
+  // Listen for updates in overrides and reload the page if the updated override is relevant
+  chrome.runtime.onMessage.addListener(message => {
+    onMessage(message, location);
+  });
+}
