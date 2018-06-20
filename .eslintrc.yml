@@ -1,6 +1,7 @@
 env:
-  browser: true
   es6: true
+  browser: true
+  node: true
 extends: 'eslint:recommended'
 globals:
   chrome: false
@@ -17,3 +18,8 @@ rules:
   semi:
     - error
     - always
+overrides:
+  - files:
+      - '**/*.test.js'
+    env:
+      jest: true

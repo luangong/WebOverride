@@ -2,10 +2,6 @@
   "name": "web-override",
   "version": "1.0.1",
   "description": "Override websites with your own code snippets",
-  "scripts": {
-    "lint": "markdownlint *.md && eslint .",
-    "test": "exit 0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dcohenb/WebOverride.git"
@@ -25,8 +21,21 @@
     "url": "https://github.com/dcohenb/WebOverride/issues"
   },
   "homepage": "https://github.com/dcohenb/WebOverride#readme",
+  "scripts": {
+    "lint": "markdownlint *.md && eslint .",
+    "test": "jest"
+  },
+  "eslintIgnore": [
+    "/app/",
+    "/coverage/"
+  ],
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true
+  },
   "devDependencies": {
     "eslint": "^4.19.1",
+    "jest": "^23.1.0",
     "markdownlint-cli": "^0.10.0"
   }
 }
