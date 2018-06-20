@@ -3,7 +3,6 @@ language: node_js
 node_js:
   - node
   - 8
-  - 7
   - 6
 
 # Upgrade to the latest version of NPM to be able to use npm ci
