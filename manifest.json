@@ -19,13 +19,9 @@
     "128": "icons/128.png"
   },
   "browser_action": {
-    "default_title": "See my overrides",
-    "default_icon": "icons/64.png"
-  },
-  "background": {
-    "scripts": [
-      "background/background.js"
-    ]
+    "default_icon": "icons/64.png",
+    "default_popup": "app/app.html",
+    "default_title": "See my overrides"
   },
   "content_scripts": [
     {
