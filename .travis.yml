@@ -15,7 +15,7 @@ install:
 
 script:
   - npm run lint
-  - npm test
+  - npm test -- --ci
 
 # Limit "Build pushed branches" to only the master branch
 # https://travis-ci.org/luangong/WebOverride/settings
