@@ -1,21 +1,19 @@
 'use strict';
 
 function initialize(overrides, document, location) {
-  // Filter out inactive and irrelevant overrides
-  var relevantOverrides = [];
-  for (var id in overrides) {
-    if (overrides.hasOwnProperty(id) && overrides[id].active) {
-      var query = overrides[id].urlQueries.filter(function (urlQuery) {
-        return new RegExp(urlQuery).test(location.href);
-      });
-      if (query.length > 0) {
-        relevantOverrides.push(overrides[id]);
-      }
+  Object.values(overrides).forEach(override => {
+    // Ignore inactive overrides
+    if (!override.active) {
+      return;
+    }
+
+    // Ignore overrides that don’t have matching URL patterns
+    if (!override.urlQueries.some(query => (new RegExp(query)).test(location.href))) {
+      return;
     }
   }
 
-  // Activate all relevant overrides
-  relevantOverrides.forEach(function (override) {
+    // Inject HTML, CSS, and JS for matching overrides
     if (override.htmlContent) {
       document.body.innerHTML += override.htmlContent;
     }
@@ -42,10 +40,7 @@ function initialize(overrides, document, location) {
 function onMessage(message, location) {
   if (message.request == 'overrideUpdated' && message.urlQueries) {
     // Check if any of the overrides urls pass the regexp test
-    var overrideRelevant = message.urlQueries.filter(function (urlQuery) {
-      return new RegExp(urlQuery).test(location.href);
-    });
-    if (overrideRelevant.length > 0) {
+    if (message.urlQueries.some(query => (new RegExp(query)).test(location.href))) {
       location.reload();
     }
   }
