@@ -2,16 +2,12 @@ language: node_js
 
 node_js:
   - node
-  - 10
-  - 8
+  - "10"
+  - "8"
 
 # Upgrade to the latest version of NPM to be able to use npm ci
 before_install:
   - npm install --global npm
-
-# Speed up installation of packages
-install:
-  - npm ci
 
 script:
   - npm run lint
