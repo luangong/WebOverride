@@ -46,7 +46,7 @@ function onMessage(message, location) {
 }
 
 // Export functions for the Node environment
-if (module && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = { initialize, onMessage };
 } else {
   // Get all the scripts and activate the relevant ones
